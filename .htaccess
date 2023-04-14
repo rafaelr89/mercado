@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteBase /mercado/public/
+RewriteRule ^$ index.php [L]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+
+# Permite o acesso a arquivos estáticos na pasta public
+RewriteRule ^public/(.*)$ public/$1 [L]
